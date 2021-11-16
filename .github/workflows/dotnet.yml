@@ -23,3 +23,5 @@ jobs:
       run: dotnet build DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj --no-restore --configuration Release
     - name: Pack
       run: dotnet pack DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj --no-build --configuration Release
+    - name: Push Nuget Pack
+      run: dotnet nuget push DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj
