@@ -18,6 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
         source-url: https://nuget.pkg.github.com/upgamingdev/index.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Restore dependencies
       run: dotnet restore DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj
     - name: Build
