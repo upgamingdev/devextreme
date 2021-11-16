@@ -5,6 +5,7 @@
 		<IsPackable>true</IsPackable>
 		<RepositoryUrl>https://github.com/upgamingdev/devextreme</RepositoryUrl>
 		<FileVersion>1.0.0.1</FileVersion>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
