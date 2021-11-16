@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 6.0.x
         source-url: https://nuget.pkg.github.com/upgamingdev/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Restore dependencies
       run: dotnet restore DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj
     - name: Build
@@ -27,4 +27,4 @@ jobs:
     - name: Pack
       run: dotnet pack DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj --no-build --configuration Release
     - name: Push Nuget Pack
-      run: dotnet nuget push **/*.nupkg -k "$GITHUB_TOKEN"
+      run: dotnet nuget push **/*.nupkg --skip-duplicate
