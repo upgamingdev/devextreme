@@ -31,7 +31,7 @@ jobs:
       run: dotnet restore DevExtreme.Dapper.Data
 
     - name: Build
-      run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix rc -p:Version=1.0.${{ github.run_number }}
+      run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix rc-${{ github.run_number }}
 
     - name: Create the Debug package
       run: dotnet pack --configuration Debug DevExtreme.Dapper.Data --no-build --version-suffix rc #Release candidate
