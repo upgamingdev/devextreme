@@ -22,7 +22,9 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Debug
-      run: echo "Print a single environment variable (the commit SHA ) - ${{ runner.os }} run_number ${{ github.run_number }}"
+      run: |
+        $version = "1.0."+(4000+$($Env:GITHUB_RUN_NUMBER))+".0"
+        echo $version
 
     - name: Print all environment variables
       run: env
