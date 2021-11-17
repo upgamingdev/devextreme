@@ -34,7 +34,7 @@ jobs:
       run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix rc-${{ github.run_number }}
 
     - name: Create the Debug package
-      run: dotnet pack --configuration Debug DevExtreme.Dapper.Data --no-build --version-suffix rc #Release candidate
+      run: dotnet pack --configuration Debug DevExtreme.Dapper.Data --no-build --version-suffix rc-${{ github.run_number }}
 
     - name: Publish the package to GPR
       run: dotnet nuget push DevExtreme.Dapper.Data/bin/Debug/*.nupkg --skip-duplicate
