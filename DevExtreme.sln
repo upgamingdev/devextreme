@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExtreme.Demo", "DevExtre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExtreme.Dapper.Data.Tests", "DevExtreme.Dapper.Data.Tests\DevExtreme.Dapper.Data.Tests.csproj", "{1FBA2D7C-6FDF-4561-9DB0-B5A5C4125D53}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{E5947D83-7BBE-4B18-A836-7E6563D3F5B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{EE473383-A01C-48A9-B592-B4571585B3CF}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE473383-A01C-48A9-B592-B4571585B3CF} = {E5947D83-7BBE-4B18-A836-7E6563D3F5B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6FA22DD-F3EF-4D9C-B2A6-704F41D67BC2}

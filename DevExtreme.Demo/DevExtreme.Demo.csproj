@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevExtreme.Dapper.Data\DevExtreme.Dapper.Data.csproj" />
+    <PackageReference Include="DevExtreme.Dapper.Data" Version="1.0.1" />
   </ItemGroup>
 
 </Project>
