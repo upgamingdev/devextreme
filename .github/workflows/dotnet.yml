@@ -31,10 +31,10 @@ jobs:
       run: dotnet restore DevExtreme.Dapper.Data
 
     - name: Build
-      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore --version-suffix 1.0.3
+      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore --version-suffix preview1
 
     - name: Create the package
-      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build --version-suffix 1.0.3
+      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build --version-suffix preview1
 
     - name: Publish the package to GPR
       run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate
