@@ -21,7 +21,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Debug
-      run: echo " Print a single environment variable (the commit SHA ) - ${{ runner.os }} - ${{ imageversion }} - ${{ runner.tool.cache }}"
+      run: echo " Print a single environment variable (the commit SHA ) - ${{ runner.os }} - ${{ runner.tool.cache }}"
     - name: Print all environment variables
       run: env
     #- name: Restore dependencies
