@@ -22,7 +22,7 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Debug
-      run: echo "Print a single environment variable (the commit SHA ) - ${{ runner.os }} - ${{ runner.tool.cache }}"
+      run: echo "Print a single environment variable (the commit SHA ) - ${{ runner.os }} run_number ${{ github.run_number }}"
 
     - name: Print all environment variables
       run: env
@@ -31,7 +31,7 @@ jobs:
       run: dotnet restore DevExtreme.Dapper.Data
 
     - name: Build
-      run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix rc #Release candidate
+      run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix rc -p:Version=1.0.${{ github.run_number }}
 
     - name: Create the Debug package
       run: dotnet pack --configuration Debug DevExtreme.Dapper.Data --no-build --version-suffix rc #Release candidate
