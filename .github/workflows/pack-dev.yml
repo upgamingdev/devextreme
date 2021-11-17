@@ -23,7 +23,7 @@ jobs:
 
     - name: Debug
       run: |
-        $version = "1.0."+(4000+$($Env:GITHUB_RUN_NUMBER))+".0"
+        $version = "1.0.${{ secrets.GITHUB_RUN_NUMBER }}"
         echo $version
 
     - name: Print all environment variables
