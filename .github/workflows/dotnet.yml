@@ -37,4 +37,4 @@ jobs:
       run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build --version-suffix 1.0.2
 
     - name: Publish the package to GPR
-      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate --no-symbols
+      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate
