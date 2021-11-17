@@ -1,0 +1,40 @@
+name: .NET MAIN
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        source-url: https://nuget.pkg.github.com/upgamingdev/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Debug
+      run: echo " Print a single environment variable (the commit SHA ) - ${{ runner.os }} - ${{ runner.tool.cache }}"
+
+    - name: Print all environment variables
+      run: env
+
+    - name: Restore dependencies
+      run: dotnet restore DevExtreme.Dapper.Data
+
+    - name: Build
+      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore
+
+    - name: Create the package
+      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build
+
+    - name: Publish the package to GPR
+      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate

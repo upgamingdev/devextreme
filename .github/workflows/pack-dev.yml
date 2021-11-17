@@ -1,10 +1,10 @@
-name: .NET
+name: .NET - DEV
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   build:
@@ -31,15 +31,10 @@ jobs:
       run: dotnet restore DevExtreme.Dapper.Data
 
     - name: Build
-      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore #--version-suffix preview1
+      run: dotnet build --configuration Debug DevExtreme.Dapper.Data --no-restore --version-suffix dev
 
-      if: github.ref_name != 'main'
-    - name: Create the preview package
-      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build --version-suffix preview
-
-      if: github.ref_name == 'main'
-    - name: Create the package
-      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build
+    - name: Create the Debug package
+      run: dotnet pack --configuration Debug DevExtreme.Dapper.Data --no-build --version-suffix dev
 
     - name: Publish the package to GPR
-      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate
+      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Debug/*.nupkg --skip-duplicate
