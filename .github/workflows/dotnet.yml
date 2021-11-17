@@ -20,15 +20,21 @@ jobs:
         source-url: https://nuget.pkg.github.com/upgamingdev/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Debug
       run: echo " Print a single environment variable (the commit SHA ) - ${{ runner.os }} - ${{ runner.tool.cache }}"
+
     - name: Print all environment variables
       run: env
-    #- name: Restore dependencies
-    #  run: dotnet restore DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj
-    #- name: Build
-    #  run: dotnet build DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj --no-restore --configuration Release
-    #- name: Pack
-    #  run: dotnet pack DevExtreme.Dapper.Data/DevExtreme.Dapper.Data.csproj --no-build --configuration Release
-    #- name: Push Nuget Pack
-    #  run: dotnet nuget push **/*.nupkg --skip-duplicate
+
+    - name: Restore dependencies
+      run: dotnet restore DevExtreme.Dapper.Data
+
+    - name: Build
+      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore
+
+    - name: Create the package
+      run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build
+
+    - name: Publish the package to GPR
+      run: dotnet nuget push DevExtreme.Dapper.Data/bin/Release/*.nupkg --skip-duplicate
