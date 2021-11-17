@@ -4,8 +4,6 @@
 		<TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<RepositoryUrl>https://github.com/upgamingdev/devextreme</RepositoryUrl>
-		<FileVersion>1.0.0.1</FileVersion>
-		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

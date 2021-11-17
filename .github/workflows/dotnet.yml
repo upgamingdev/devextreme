@@ -31,7 +31,7 @@ jobs:
       run: dotnet restore DevExtreme.Dapper.Data
 
     - name: Build
-      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore
+      run: dotnet build --configuration Release DevExtreme.Dapper.Data --no-restore --version-suffix 1.0.2
 
     - name: Create the package
       run: dotnet pack --configuration Release DevExtreme.Dapper.Data --no-build
